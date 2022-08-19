@@ -14,6 +14,7 @@ https://nft.storage/docs/how-to/mint-erc-1155/
 
 ###################################################################################################################
 working with LIT actions
+https://developer.litprotocol.com/LitActionsAndPKPs/workingWithLitActions
 
 Working with Lit Actions
 To create a Lit Action, you need to write some Javascript code that will accomplish your goals. The Lit Protocol provides JS function bindings to do things like request a signature or a decryption.
@@ -24,6 +25,7 @@ Hello World
 First, install the Lit JS SDK serrano tag:
 
 yarn add lit-js-sdk@serrano
+
 Then, write some Javascript code that will request a signature from the Lit Nodes. This Lit Action will sign the string "Hello World" with the shared testnet ECDSA key and return the signature.
 
 The JS below will be run by every node in the network in parallel.
