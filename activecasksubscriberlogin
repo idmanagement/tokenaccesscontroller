@@ -1,0 +1,33 @@
+// must be an active subscriber of cask
+
+const accessControlConditions = [
+  {
+    conditionType: "evmBasic",
+    contractAddress: "",
+    standardContractType: "",
+    chain: "polygon",
+    method: "",
+    parameters: [":userAddress"],
+    returnValueTest: {
+        comparator: "=",
+        value: '0xCdcE8CD89e4B29193874Acc677D5ae6624524bFd',
+    },
+  },
+  {operator: "or"},
+  {
+    conditionType: "evmBasic",
+    contractAddress: "0x4A6f232552E0fd76787006Bb688bFBCB931cc3d0",
+    standardContractType: "CASK",
+    chain: "polygon",
+    method: 'getActiveSubscriptionCount',
+    parameters: [
+        ':userAddress',
+        '0xCdcE8CD89e4B29193874Acc677D5ae6624524bFd',
+        '100'
+    ],
+    returnValueTest: {
+        comparator: '>',
+        value: '0'
+    }
+  }
+]
