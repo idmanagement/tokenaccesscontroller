@@ -1,0 +1,17 @@
+// login with a specific wallet
+
+const accessControlConditions = [
+  {
+    contractAddress: '',
+    standardContractType: '',
+    chain,
+    method: '',
+    parameters: [
+      ':userAddress',
+    ],
+    returnValueTest: {
+      comparator: '=',
+      value: '0x50e2dac5e78B5905CB09495547452cEE64426db2'
+    }
+  }
+]
