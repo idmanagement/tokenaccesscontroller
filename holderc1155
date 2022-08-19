@@ -1,0 +1,17 @@
+// must hold 1 erc1155 of specific contract with specific token ID of 9541
+const accessControlConditions = [
+  {
+    contractAddress: '0x3110c39b428221012934A7F617913b095BC1078C',
+    standardContractType: 'ERC1155',
+    chain,
+    method: 'balanceOf',
+    parameters: [
+      ':userAddress',
+      '9541'
+    ],
+    returnValueTest: {
+      comparator: '>',
+      value: '0'
+    }
+  }
+]
