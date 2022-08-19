@@ -1,0 +1,17 @@
+// must hold one maker
+
+const accessControlConditions = [
+  {
+    contractAddress: '0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2',
+    standardContractType: 'ERC20',
+    chain,
+    method: 'balanceOf',
+    parameters: [
+      ':userAddress'
+    ],
+    returnValueTest: {
+      comparator: '>',
+      value: '0'
+    }
+  }
+]
