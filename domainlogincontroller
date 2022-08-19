@@ -1,0 +1,17 @@
+// This will check the domain of the Sign in with Ethereum message and compare it to the domain specified in the returnValueTest. In this case, the domain must match "localhost:3050". This condition is useful to prevent signature reuse across domains. 
+// You can use the "AND" operator with Boolean Logic to add this condition to any other condition which will prevent using signatures from other domains.
+
+
+const accessControlConditions = [
+  {
+    contractAddress: "",
+    standardContractType: "SIWE",
+    chain: "ethereum",
+    method: "",
+    parameters: [":domain"],
+    returnValueTest: {
+      comparator: "=",
+      value: "localhost:3050",
+    },
+  },
+];
