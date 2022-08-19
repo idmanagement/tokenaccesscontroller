@@ -1,0 +1,15 @@
+// test to see if registered with proof of humanity
+
+const accessControlConditions = [
+  {
+    contractAddress: "0xC5E9dDebb09Cd64DfaCab4011A0D5cEDaf7c9BDb",
+    standardContractType: "ProofOfHumanity",
+    chain: "ethereum",
+    method: "isRegistered",
+    parameters: [":userAddress"],
+    returnValueTest: {
+      comparator: "=",
+      value: "true"
+    }
+  }
+]
