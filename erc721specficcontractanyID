@@ -1,0 +1,17 @@
+// erc721 specific batch of NFT any NFT is a login
+
+const accessControlConditions = [
+  {
+    contractAddress: '0xA80617371A5f511Bf4c1dDf822E6040acaa63e71',
+    standardContractType: 'ERC721',
+    chain,
+    method: 'balanceOf',
+    parameters: [
+      ':userAddress'
+    ],
+    returnValueTest: {
+      comparator: '>',
+      value: '0'
+    }
+  }
+]
