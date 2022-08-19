@@ -1,0 +1,30 @@
+// This is an integration with https://poap.xyz
+// It checks that a user holds a specific POAP. Enter the POAP id number in the final returnValueTest value. In this example the POAP ID is "37582".
+
+var accessControlConditions = [
+  {
+    contractAddress: "0x22C1f6050E56d2876009903609a2cC3fEf83B415",
+    standardContractType: "POAP",
+    chain: "xdai",
+    method: "eventId",
+    parameters: [],
+    returnValueTest: {
+      comparator: "=",
+      value: "37582",
+    },
+  },
+  {
+    operator: "or",
+  },
+  {
+    contractAddress: "0x22C1f6050E56d2876009903609a2cC3fEf83B415",
+    standardContractType: "POAP",
+    chain: "ethereum",
+    method: "eventId",
+    parameters: [],
+    returnValueTest: {
+      comparator: "=",
+      value: "37582",
+    },
+  },
+];
