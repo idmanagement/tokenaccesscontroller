@@ -1,0 +1,17 @@
+// login if subscribed to creaton
+
+const accessControlConditions = [
+  {
+    contractAddress: '0x77c0612bb672a52c60c7a71b898853570bd2bbbb',
+    standardContractType: 'Creaton',
+    chain,
+    method: 'subscribers',
+    parameters: [
+      ':userAddress',
+    ],
+    returnValueTest: {
+      comparator: '=',
+      value: 'true'
+    }
+  }
+]
