@@ -1,0 +1,80 @@
+// unified multiple conditionals
+// Posess at least 0.1 SOL on Solana
+// Posess at least 0.00001 ETH on Ethereum
+// Posess at least 1 ERC1155 token with id 8 and at contract 0x7C7757a9675f06F3BE4618bB68732c4aB25D2e88 on Polygon
+// Posess at least 1 ATOM on Cosmos
+
+var unifiedAccessControlConditions = [
+  {
+    conditionType: "solRpc",
+    method: "getBalance",
+    params: [":userAddress"],
+    chain: "solana",
+    returnValueTest: {
+      key: "",
+      comparator: ">=",
+      value: "100000000", // equals 0.1 SOL
+    },
+  },
+  { operator: "or" },
+  {
+    conditionType: "evmBasic",
+    contractAddress: "",
+    standardContractType: "",
+    chain: "ethereum",
+    method: "eth_getBalance",
+    parameters: [":userAddress", "latest"],
+    returnValueTest: {
+      comparator: ">=",
+      value: "10000000000000", // equals 0.00001 ETH
+    },
+  },
+  { operator: "or" },
+  {
+    conditionType: "evmContract",
+    contractAddress: "0x7C7757a9675f06F3BE4618bB68732c4aB25D2e88",
+    functionName: "balanceOf",
+    functionParams: [":userAddress", "8"],
+    functionAbi: {
+      type: "function",
+      stateMutability: "view",
+      outputs: [
+        {
+          type: "uint256",
+          name: "",
+          internalType: "uint256",
+        },
+      ],
+      name: "balanceOf",
+      inputs: [
+        {
+          type: "address",
+          name: "account",
+          internalType: "address",
+        },
+        {
+          type: "uint256",
+          name: "id",
+          internalType: "uint256",
+        },
+      ],
+    },
+    chain: "polygon",
+    returnValueTest: {
+      key: "",
+      comparator: ">",
+      value: "0",
+    },
+  },
+  { "operator": "or" },
+  {
+    conditionType: "cosmos",
+    path: "/cosmos/bank/v1beta1/balances/:userAddress",
+    chain: "cosmos",
+    returnValueTest: {
+      key: "$.balances[0].amount",
+      comparator: ">=",
+      value: "1000000", // equals 1 ATOM
+    },
+  },
+];
